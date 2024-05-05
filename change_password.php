@@ -52,18 +52,6 @@ function updatePassword($username, $new_password) {
     file_put_contents("users.txt", implode("\n", $updated_lines));
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>修改密碼</title>
-</head>
-<body>
-
-<h1>修改密碼</h1>
-
 <?php
 if (isset($_GET['error'])) {
     $error = $_GET['error'];
@@ -74,17 +62,37 @@ if (isset($_GET['error'])) {
     echo "<p>密碼修改成功。</p>";
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改密碼</title>
+    <!-- 引入 Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-blue-400 to-purple-600 h-screen flex items-center justify-center">
 
-<form action="change_password.php" method="post">
-    <label for="old_password">舊密碼：</label>
-    <input type="password" id="old_password" name="old_password"><br><br>
-    <label for="new_password">新密碼：</label>
-    <input type="password" id="new_password" name="new_password"><br><br>
-    <label for="confirm_password">確認新密碼：</label>
-    <input type="password" id="confirm_password" name="confirm_password"><br><br>
-    <input type="submit" value="修改密碼">
-</form>
-<a href="welcome.php">回主頁</a>
+<div class="max-w-md bg-white shadow-md rounded-md p-8">
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">修改密碼</h1>
+    
+    <form action="change_password.php" method="post">
+        <div class="mb-4">
+            <label for="old_password" class="block text-gray-700 font-bold mb-2">舊密碼：</label>
+            <input type="password" id="old_password" name="old_password" class="form-input w-full">
+        </div>
+        <div class="mb-4">
+            <label for="new_password" class="block text-gray-700 font-bold mb-2">新密碼：</label>
+            <input type="password" id="new_password" name="new_password" class="form-input w-full">
+        </div>
+        <div class="mb-4">
+            <label for="confirm_password" class="block text-gray-700 font-bold mb-2">確認新密碼：</label>
+            <input type="password" id="confirm_password" name="confirm_password" class="form-input w-full">
+        </div>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">修改密碼</button>
+    </form>
+    <a href="welcome.php" class="block text-center text-gray-700 mt-4 hover:underline">回主頁</a>
+</div>
 
 </body>
 </html>

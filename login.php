@@ -62,16 +62,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     exit;
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-
 <?php
 if(isset($_GET['error'])) {
     $error = $_GET['error'];
@@ -88,13 +78,34 @@ if(isset($_GET['error'])) {
 }
 ?>
 
-<form action="login.php" method="post">
-    <label for="username">帳號：</label>
-    <input type="text" id="username" name="username"><br><br>
-    <label for="password">密碼：</label>
-    <input type="password" id="password" name="password"><br><br>
-    <input type="submit" value="登入">
-</form>
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入</title>
+    <!-- 引入 Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-blue-400 to-purple-600 h-screen flex items-center justify-center">
+
+<div class="max-w-md bg-white shadow-md rounded-md p-8">
+    <h1 class="text-3xl font-bold text-center text-gray-800 mb-8">請登入</h1>
+    
+    <form action="login.php" method="post">
+        <div class="mb-4">
+            <label for="username" class="block text-gray-700 font-bold mb-2">帳號：</label>
+            <input type="text" id="username" name="username" class="form-input w-full">
+        </div>
+        <div class="mb-4">
+            <label for="password" class="block text-gray-700 font-bold mb-2">密碼：</label>
+            <input type="password" id="password" name="password" class="form-input w-full">
+        </div>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full">登入</button>
+    </form>
+</div>
 
 </body>
 </html>
