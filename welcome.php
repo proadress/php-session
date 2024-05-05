@@ -17,5 +17,6 @@ if(!isset($_SESSION['username'])) {
     <form action="logout.php" method="post">
         <input type="submit" value="Logout">
     </form>
+    <a href="change_password.php">修改密碼</a>
 </body>
 </html>
